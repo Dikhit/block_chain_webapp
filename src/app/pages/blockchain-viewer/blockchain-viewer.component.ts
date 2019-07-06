@@ -9,11 +9,17 @@ import { Component, OnInit } from '@angular/core';
 export class BlockchainViewerComponent implements OnInit {
 
   public blocks = [];
+  public selectedBlock = null;
+
   constructor(private blockchainService : BlockchainService) {
     this.blocks = blockchainService.getBlocks();
+    this.selectedBlock = this.blocks[0];
   }
 
   ngOnInit() {
   }
 
+  showTransactions(block){
+    this.selectedBlock=block;
+  }
 }
